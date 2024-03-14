@@ -4,7 +4,6 @@ import Drawer from "./components/common/Drawer";
 import Router from "./router/router";
 
 const App = (): JSX.Element => {
-
   return (
     <BrowserRouter>
       <input type="checkbox" id="side-menu" className="drawer-toggle" />
