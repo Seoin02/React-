@@ -1,10 +1,7 @@
 import Slider from "../components/common/Slider";
 import { useRecoilState } from "recoil";
-import textState from "../atom.js";
 
 const Index = (): JSX.Element => {
-  const [text, setText] = useRecoilState(textState);
-  console.log(text);
   return (
     <>
       <Slider />

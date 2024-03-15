@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ICartState, cartState, removeFromCart } from "../../store/cart";
-import { toCurrencyFormat } from "../../helpers/helpers";
+import { toCurrencyFormat } from "../../utils/util";
 import { useRecoilState } from "recoil";
 
 const CartList = (): JSX.Element => {
@@ -12,12 +12,7 @@ const CartList = (): JSX.Element => {
     setCart(removeFromCart(cart, id));
   };
 
-  return (
-    <div className="lg:flex lg:items-center mt-4 px-2 lg:px-0">
-      {/* 카트 리스트 화면을 구성 해보세요. */}
-    </div>
-  );
+  return <div className="lg:flex lg:items-center mt-4 px-2 lg:px-0">{/* 카트 리스트 화면을 구성 해보세요. */}</div>;
 };
-
 
 export default CartList;
