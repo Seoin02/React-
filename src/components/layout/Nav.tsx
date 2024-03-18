@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
       <div className="flex w-full xl:container xl:m-auto">
-        <label className="flex-none lg:hidden btn btn-square btn-ghost w-10 sm:w-auto">
+        <label htmlFor="side-menu" className="flex-none lg:hidden btn btn-square btn-ghost w-10 sm:w-auto">
           <img src={bars} className="inline-block w-6 h-6 stroke-gray-700 dark:stroke-current" />
         </label>
         <div>
