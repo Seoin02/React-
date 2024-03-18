@@ -2,6 +2,7 @@ import React from "react";
 import bars from "../../assets/img/svg/bars.svg";
 import sun from "../../assets/img/svg/sun.svg";
 import moon from "../../assets/img/svg/moon.svg";
+import magnifyingGlass from "../../assets/img/svg/magnifying-glass.svg";
 import cart from "../../assets/img/svg/cart-shopping-solid.svg";
 
 const Nav = () => {
@@ -13,18 +14,19 @@ const Nav = () => {
         </label>
         <div>
           <h1 className="shrink-0 flex md:flex-none flex-1 mx-1 sm:mx-2">
-            <a href="/">
-              <span className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap">React Shop</span>
+            <a className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap" href="/">
+              React Shop
             </a>
           </h1>
         </div>
-        <div className="flex-none hidden md:flex md: flex-1 ml-2">
+        <div className="flex-none hidden md:flex md:flex-1 ml-2">
           <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">패션</button>
           <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">액세서리</button>
           <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">디지털</button>
         </div>
-        <div className="flex items-center px-2">
+        <div className="right-0 flex items-center px-2 md:flex-1 gap-2">
           <img src={moon} className="swap-on fill-black w-7 h-7" />
+          <img src={magnifyingGlass} className="h-6 w-6 stroke-gray-700 dark:stroke-white" />
           <input
             type="text"
             placeholder="검색"
