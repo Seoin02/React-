@@ -11,7 +11,15 @@ export interface Products extends AxiosRequestConfig {
   image?: string;
 }
 
-const ItemList = ({ data, categoryName }: { data?: Products; categoryName: string }) => {
+const ItemList = ({
+  data,
+  categoryName,
+  filterItem,
+}: {
+  data?: Products;
+  categoryName?: string;
+  filterItem?: (index) => boolean;
+}) => {
   const [items, setItems] = useState<Products[]>([]);
 
   useEffect(() => {
@@ -32,7 +40,7 @@ const ItemList = ({ data, categoryName }: { data?: Products; categoryName: strin
         <div></div>
       ) : (
         items
-          .filter((item) => item.category?.includes(categoryName))
+          .filter((item, index) => item.category.includes(categoryName) || (filterItem && filterItem(index)))
           .map((item) => (
             <a
               key={item.id}
