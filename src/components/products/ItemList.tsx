@@ -11,20 +11,7 @@ export interface Products extends AxiosRequestConfig {
   image?: string;
 }
 
-// const productsData = (data: Products) => {
-//   const { id, title, price, category, description, image } = data;
-//   return {
-//     id,
-//     title,
-//     price,
-//     category,
-//     description,
-//     image,
-//     alt: `${title} 이미지`,
-//   };
-// };
-
-const ItemList = ({ data }: { data: Products }) => {
+const ItemList = ({ data, itemFilter }: { data?: Products; itemFilter: () => void }) => {
   const [items, setItems] = useState<Products[]>([]);
 
   useEffect(() => {
@@ -40,20 +27,28 @@ const ItemList = ({ data }: { data: Products }) => {
   }, []);
   console.log(items);
   return (
-    <>
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
       {!items.length ? (
         <div></div>
       ) : (
-        items.map((item) => (
-          <div key={item.id}>
-            <h2 className="mb-5 lg:mb-8 test-3xl lg:text-4xl text-center font-bold">{item.category}</h2>
-            <div>{item.image}</div>
-            <div>{item.title}</div>
-            <div>{item.price}</div>
-          </div>
-        ))
+        items
+          .filter((item, index) => itemFilter(index))
+          .map((item) => (
+            <a
+              key={item.id}
+              className="card card-bordered border-gray-200 dark:border-gray-800 card-compact lg:card-normal"
+            >
+              <figure className="flex flex-col h-80 bg-white overflow-hidden">
+                <img className="transition-transform duration-300 w-28" src={item.image} alt="상품 이미지" />
+              </figure>
+              <div className="card-body bg-gray-100 dark:bg-gray-700">
+                <div className="card-title text-base">{item.title}</div>
+                <div className="text-base">${item.price}</div>
+              </div>
+            </a>
+          ))
       )}
-    </>
+    </div>
   );
 };
 
