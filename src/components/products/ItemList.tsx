@@ -11,7 +11,7 @@ export interface Products extends AxiosRequestConfig {
   image?: string;
 }
 
-const ItemList = ({ data, itemFilter }: { data?: Products; itemFilter: () => void }) => {
+const ItemList = ({ data, categoryName }: { data?: Products; categoryName: string }) => {
   const [items, setItems] = useState<Products[]>([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ItemList = ({ data, itemFilter }: { data?: Products; itemFilter: () => voi
         <div></div>
       ) : (
         items
-          .filter((item, index) => itemFilter(index))
+          .filter((item) => item.category?.includes(categoryName))
           .map((item) => (
             <a
               key={item.id}
