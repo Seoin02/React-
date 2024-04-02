@@ -8,7 +8,9 @@ const Router = (): JSX.Element => {
     <Routes>
       <Route path="*" element={<Error />} />
       <Route path="/" element={<Index />} />
-      {/* 라우팅 추가 해보세요. */}
+      <Route path="/fashion" element={<Index />} />
+      <Route path="/accessory" element={<Index />} />
+      <Route path="/digital" element={<Index />} />
     </Routes>
   );
 };
