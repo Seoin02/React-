@@ -20,9 +20,15 @@ const Nav = () => {
           </h1>
         </div>
         <div className="flex-none hidden md:flex md:flex-1 ml-2">
-          <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">패션</button>
-          <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">액세서리</button>
-          <button className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white">디지털</button>
+          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/fashion">
+            패션
+          </a>
+          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/accessory">
+            액세서리
+          </a>
+          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/digital">
+            디지털
+          </a>
         </div>
         <div className="right-0 flex items-center px-2 md:flex-1 gap-2">
           <img src={moon} className="swap-on fill-black w-7 h-7" />
