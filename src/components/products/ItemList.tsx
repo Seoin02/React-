@@ -17,8 +17,8 @@ const ItemList = ({
   filterItem,
 }: {
   data?: Products;
-  categoryName?: string;
-  filterItem?: (index) => boolean;
+  categoryName: string;
+  filterItem?: (index: number) => boolean;
 }) => {
   const [items, setItems] = useState<Products[]>([]);
 
@@ -40,7 +40,7 @@ const ItemList = ({
         <div></div>
       ) : (
         items
-          .filter((item, index) => item.category.includes(categoryName) || (filterItem && filterItem(index)))
+          .filter((item, index) => item.category?.includes(categoryName) || (filterItem && filterItem(index)))
           .map((item) => (
             <a
               key={item.id}
