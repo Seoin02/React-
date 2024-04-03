@@ -5,6 +5,7 @@ import Index from "../views/Index";
 import Fashion from "../views/Fashion";
 import Accessory from "../views/Accessory";
 import Digital from "../views/Digital";
+import CartView from "../components/carts/CartView";
 
 const Router = (): JSX.Element => {
   return (
@@ -14,6 +15,7 @@ const Router = (): JSX.Element => {
       <Route path="/fashion" element={<Fashion />} />
       <Route path="/accessory" element={<Accessory />} />
       <Route path="/digital" element={<Digital />} />
+      <Route path="/cart" element={<CartView />} />
     </Routes>
   );
 };
