@@ -33,7 +33,6 @@ const ItemList = ({
     };
     fetchData();
   }, []);
-  console.log(items);
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
       {!items.length ? (
@@ -48,6 +47,7 @@ const ItemList = ({
             <a
               key={item.id}
               className="card card-bordered border-gray-200 dark:border-gray-800 card-compact lg:card-normal"
+              href={`/product/${item.id}`}
             >
               <figure className="flex flex-col h-80 bg-white overflow-hidden">
                 <img className="transition-transform duration-300 w-28" src={item.image} alt="상품 이미지" />

@@ -6,8 +6,9 @@ import Fashion from "../views/Fashion";
 import Accessory from "../views/Accessory";
 import Digital from "../views/Digital";
 import CartView from "../components/carts/CartView";
+import Product from "../views/Product";
 
-const Router = (): JSX.Element => {
+const Router = memo((): JSX.Element => {
   return (
     <Routes>
       <Route path="*" element={<Error />} />
@@ -15,9 +16,10 @@ const Router = (): JSX.Element => {
       <Route path="/fashion" element={<Fashion />} />
       <Route path="/accessory" element={<Accessory />} />
       <Route path="/digital" element={<Digital />} />
-      <Route path="/cart" element={<CartView />} />
+      <Route path="/carts" element={<CartView />} />
+      <Route path="/product/:id" element={<Product />} />
     </Routes>
   );
-};
+});
 
 export default memo(Router);
