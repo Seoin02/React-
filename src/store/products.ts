@@ -30,7 +30,7 @@ export const productsList = selector<IProduct[]>({
       const data = await response.json();
       return data || [];
     } catch (error) {
-      console.log(`Error: \n${error}`);
+      console.log(`Error: ${error}`);
       return [];
     }
   },
