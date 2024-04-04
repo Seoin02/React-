@@ -7,10 +7,10 @@ const ProductDetail = ({ product }): JSX.Element => {
       {!product ? (
         <div></div>
       ) : (
-        <div key={product.id} className="lg:flex lg: gap-24 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
+        <div key={product.id} className="lg:flex lg: gap-36 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
           <div className="lg:flex lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
-            <figure className="flex-shrink-0 rounded-2xl overflow-hidden px-4 py-4 bg-white view_image">
-              <img className="object-contain w-full h-72" src={product.image} alt={product.title} />
+            <figure className="flex-shrink-0 items-center rounded-2xl overflow-hidden px-4 py-4 bg-white view_image">
+              <img className="object-contain w-56 h-full" src={product.image} alt={product.title} />
             </figure>
           </div>
           <div className="card-body px-1 lg:px-12">
