@@ -1,0 +1,14 @@
+commit e7511587ce11ddd2e6f4a50464116f9d4429418f
+Author: Seoin <144193370+Seoin02@users.noreply.github.com>
+Date:   Wed Mar 6 21:36:19 2024 +0900
+
+    Update README.md
+
+diff --git a/README.md b/README.md
+index f635c61..ac6fcbd 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1 @@
+-# React-
+\ No newline at end of file
++# React-Shop

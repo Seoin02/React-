@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * API 통신을 할 때 로딩중인지를 탐색하고 로딩 중이라면 Skeleton UI를 노출 시켜 보세요.
  */

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { ICartState, cartState, removeFromCart } from "../../store/cart";
 import { toCurrencyFormat } from "../../utils/util";
