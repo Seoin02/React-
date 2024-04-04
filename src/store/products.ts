@@ -27,8 +27,7 @@ export const productsList = selector<IProduct[]>({
   get: async () => {
     try {
       const response = await fetch(productsURL);
-      const data = await response.json();
-      return data || [];
+      return (await response.json()) || [];
     } catch (error) {
       console.log(`Error: ${error}`);
       return [];
