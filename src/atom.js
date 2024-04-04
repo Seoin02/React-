@@ -1,8 +1,8 @@
 import { atom } from "recoil";
 
-const textState = atom({
-  key: "textState",
-  default: "1",
+const countState = atom({
+  key: "countState",
+  default: "0",
 });
 
-export default textState;
+export default countState;
