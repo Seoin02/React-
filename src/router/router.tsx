@@ -8,7 +8,7 @@ import Digital from "../views/Digital";
 import CartView from "../components/carts/CartView";
 import Product from "../views/Product";
 
-const Router = memo((): JSX.Element => {
+const Router = (): JSX.Element => {
   return (
     <Routes>
       <Route path="*" element={<Error />} />
@@ -20,6 +20,6 @@ const Router = memo((): JSX.Element => {
       <Route path="/product/:id" element={<Product />} />
     </Routes>
   );
-});
+};
 
 export default memo(Router);

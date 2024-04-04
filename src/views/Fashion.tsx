@@ -1,6 +1,8 @@
+import React from "react";
 import BreadCrumb from "../components/common/Breadcrumb";
 import { MENUS } from "../constants/category";
 import ItemList from "../components/products/ItemList";
+
 const Fashion = (): JSX.Element => {
   return (
     <section className="pt-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto">

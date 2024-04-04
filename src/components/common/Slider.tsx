@@ -1,4 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
 import fashionImg from "../../assets/img/carousel/img_shop_fashion.jpeg";

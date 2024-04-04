@@ -4,3 +4,5 @@ interface ImportMeta {
     MODE: string;
   };
 }
+
+export default ImportMeta;

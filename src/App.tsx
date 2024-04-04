@@ -1,3 +1,4 @@
+import React from "react";
 import "./assets/css/tailwind.css";
 import { BrowserRouter } from "react-router-dom";
 import Drawer from "./components/common/Drawer";
