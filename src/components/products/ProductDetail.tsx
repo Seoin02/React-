@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { IProduct } from "../../store/products";
+import React from "react";
 
 const ProductDetail = ({ product }): JSX.Element => {
   return (

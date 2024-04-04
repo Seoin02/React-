@@ -1,3 +1,5 @@
+import React from "react";
+
 type TRatingProps = {
   rate?: number;
   count?: number;
