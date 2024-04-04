@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../common/Rating";
 
 const ProductDetail = ({ product }): JSX.Element => {
   return (
@@ -6,7 +7,7 @@ const ProductDetail = ({ product }): JSX.Element => {
       {!product ? (
         <div></div>
       ) : (
-        <div key={product.id}>
+        <div key={product.id} className="lg:flex lg: gap-24 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
           <div className="lg:flex lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
             <figure className="flex-shrink-0 rounded-2xl overflow-hidden px-4 py-4 bg-white view_image">
               <img className="object-contain w-full h-72" src={product.image} alt={product.title} />
@@ -18,6 +19,15 @@ const ProductDetail = ({ product }): JSX.Element => {
               <span className="badge badge-accent ml-2">NEW</span>
             </h2>
             <p className="">{product.description}</p>
+
+            <Rating rate={product?.rating.rate} count={product?.rating.count} />
+            <p className="mt-2 mb-4 text-3xl">$ {product?.price}</p>
+            <div className="card-actions">
+              <button className="btn btn-primary">장바구니에 담기</button>
+              <a className="btn btn-outline ml-1" href="/carts">
+                장바구니로 이동
+              </a>
+            </div>
           </div>
         </div>
       )}
