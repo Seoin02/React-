@@ -1,9 +1,18 @@
-import { Products } from "./../src/components/products/ItemList";
+import { AxiosRequestConfig } from "axios";
 import { axiosInstance } from "./../src/utils/axiosInstance";
 
-const fetchProductsData = async (productsData: Products) => {
+export interface Item extends AxiosRequestConfig {
+  id: number;
+  title: string;
+  price: number;
+  category: string;
+  description: string;
+  image: string;
+}
+
+const fetchProductsData = async () => {
   try {
-    const res = await axiosInstance.get("products", { params: productsData });
+    const res = await axiosInstance.get("products");
     return res.data;
   } catch (error) {
     throw new Error(`"Error fetching data:", ${error}`);

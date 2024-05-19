@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "../components/common/Slider";
 import { useRecoilState } from "recoil";
 import ItemList from "../components/products/ItemList";
