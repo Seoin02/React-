@@ -28,6 +28,8 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.37.1",
+    "@tanstack/react-query-devtools": "^5.37.1",
     "@vercel/node": "^2.15.10",
     "axios": "^1.6.8"
   }
