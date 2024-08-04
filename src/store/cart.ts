@@ -1,3 +1,4 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CART_ITEM } from "../constants/category";
 
 export interface ICartInfo {
@@ -14,8 +15,14 @@ export interface ICartItems {
 }
 
 export interface ICartState {
-  readonly items?: Record<string | number, ICartInfo>;
+  readonly items: ICartItems[];
+  totalAmount: number;
 }
+
+const initialState: ICartState = {
+  items: [],
+  totalAmount: 0,
+};
 
 /**
  * 카트의 상태는 localStorage 기준으로 초기화 됩니다.
@@ -32,6 +39,35 @@ export interface ICartState {
 //   ],
 // });
 
+const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    addToCart(state, action: PayloadAction<ICartItems>) {
+      const newItem = action.payload;
+      const existingItem = state.items.find((item) => item.id === newItem.id);
+      if (existingItem) {
+        existingItem.count += newItem.count;
+      } else {
+        state.items.push(newItem);
+      }
+      state.totalAmount += newItem.price * newItem.count;
+    },
+    removeFromCart(state, action: PayloadAction<string>) {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem) {
+        state.totalAmount -= existingItem.price * existingItem.count;
+        state.items = state.items.filter((item) => item.id !== id);
+      }
+    },
+    clearCart(state) {
+      state.items = [];
+      state.totalAmount = 0;
+    },
+  },
+});
+
 /**
  * cartList를 구현 하세요.
  * id, image, count 등을 return합니다.
@@ -40,16 +76,15 @@ export interface ICartState {
 // addToCart는 구현 해보세요.
 
 // removeFromCart는 참고 하세요.
-export const removeFromCart = (cart: ICartState, id: string) => {
-  const tempCart = { ...cart };
-  if (tempCart[id].count === 1) {
-    delete tempCart[id];
-    return tempCart;
-  } else {
-    return { ...tempCart, [id]: { id: id, count: cart[id].count - 1 } };
-  }
-};
+// export const removeFromCart = (cart: ICartState, id: string) => {
+//   const tempCart = { ...cart };
+//   if (tempCart[id].count === 1) {
+//     delete tempCart[id];
+//     return tempCart;
+//   } else {
+//     return { ...tempCart, [id]: { id: id, count: cart[id].count - 1 } };
+//   }
+// };
 
-/**
- * 그 외에 화면을 참고하며 필요한 기능들을 구현 하세요.
- */
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export default cartSlice.reducer;
