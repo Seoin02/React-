@@ -23,7 +23,17 @@ const ProductDetail = ({ product }): JSX.Element => {
         <Rating rate={product?.rating.rate} count={product?.rating.count} />
         <p className="mt-2 mb-4 text-3xl">$ {product?.price}</p>
         <div className="card-actions">
-          <button className="btn btn-primary" onClick={() => dispatch(addToCart({}))}>
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  ...product,
+                  count: 1,
+                })
+              )
+            }
+          >
             장바구니에 담기
           </button>
           <a className="btn btn-outline ml-1" href="/carts">
