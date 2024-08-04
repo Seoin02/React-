@@ -1,6 +1,5 @@
 import React from "react";
 import countState from "../../atom";
-import { RecoilState } from "recoil";
 import bars from "../../assets/img/svg/bars.svg";
 import sun from "../../assets/img/svg/sun.svg";
 import moon from "../../assets/img/svg/moon.svg";
