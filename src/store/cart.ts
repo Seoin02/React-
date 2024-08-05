@@ -14,13 +14,39 @@ export interface ICartState {
 }
 
 const initialState: ICartState = {
-  items: JSON.parse(localStorage.getItem("cartItems") || "[]"),
+  items: [],
   totalAmount: 0,
+};
+
+// localStorage에서 카트 데이터를 불러오는 함수
+const loadCartFromLocalStorage = (): ICartState => {
+  const savedCart = localStorage.getItem("cartItems");
+  if (savedCart) {
+    try {
+      const { items, totalAmount } = JSON.parse(savedCart);
+      return {
+        items: items || [],
+        totalAmount: totalAmount || 0,
+      };
+    } catch (error) {
+      console.error("Failed to parse cart data from localStorage", error);
+      return initialState;
+    }
+  }
+  return initialState;
+};
+
+const saveCartToLocalStorage = (state: ICartState) => {
+  const cartData = {
+    items: state.items,
+    totalAmount: state.totalAmount,
+  };
+  localStorage.setItem("cartItems", JSON.stringify(cartData));
 };
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: loadCartFromLocalStorage(),
   reducers: {
     addToCart(state, action: PayloadAction<ICartItems>) {
       console.log("Action dispatched:", action.payload);
@@ -32,10 +58,9 @@ const cartSlice = createSlice({
       } else {
         state.items.push(newItem);
       }
-      console.log("Before updating totalAmount");
-      state.totalAmount += newItem.price * newItem.count;
-      console.log("Updated cart state:", state);
-      localStorage.setItem("cartItems", JSON.stringify(state.items));
+      state.totalAmount = state.items.reduce((total, item) => total + item.price * item.count, 0);
+
+      saveCartToLocalStorage(state);
     },
     removeFromCart(state, action: PayloadAction<number>) {
       const id = action.payload;
@@ -45,14 +70,14 @@ const cartSlice = createSlice({
         state.totalAmount -= existingItem.price * existingItem.count;
         state.items = state.items.filter((item) => item.id !== id);
 
-        localStorage.setItem("cartItems", JSON.stringify(state.items));
+        saveCartToLocalStorage(state);
       }
     },
     clearCart(state) {
       state.items = [];
       state.totalAmount = 0;
 
-      localStorage.setItem("cartItems", JSON.stringify([]));
+      saveCartToLocalStorage(state);
     },
   },
 });
