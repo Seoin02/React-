@@ -2,6 +2,6 @@
 
 기간: 2024.03.05 ~
 
-기술스택: React / Typescript / Tailwind / Recoil
+기술스택: React / Typescript / Tailwind / Redux
 
 배포 링크: https://react-shop-one-psi.vercel.app/
