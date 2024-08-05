@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from "../../store";
 const CartView = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
   const { items, totalAmount } = useSelector((state: RootState) => state.cart);
-  console.log(items);
+  console.log(items, totalAmount);
   return (
     <section className="pt-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto">
       <BreadCrumb category="홈" crumb="장바구니" />
