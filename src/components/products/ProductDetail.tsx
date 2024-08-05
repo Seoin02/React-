@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
 import { AppDispatch } from "../../store";
 import Rating from "../common/Rating";
+import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
 
 const ProductDetail = ({ product }): JSX.Element => {
   if (product === undefined) return <div></div>;
@@ -22,7 +23,7 @@ const ProductDetail = ({ product }): JSX.Element => {
         </h2>
         <p className="">{product.description}</p>
         <Rating rate={product?.rating.rate} count={product?.rating.count} />
-        <p className="mt-2 mb-4 text-3xl">$ {product?.price}</p>
+        <p className="mt-2 mb-4 text-3xl">{toCurrencyFormat(product?.price)}</p>
         <div className="card-actions">
           <button
             className="btn btn-primary"
