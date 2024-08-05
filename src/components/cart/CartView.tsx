@@ -7,7 +7,7 @@ import { AppDispatch, RootState } from "../../store";
 const CartView = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
   const { items, totalAmount } = useSelector((state: RootState) => state.cart);
-  console.log(items, totalAmount);
+  console.log(totalAmount);
   return (
     <section className="pt-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto">
       <BreadCrumb category="홈" crumb="장바구니" />
@@ -20,25 +20,31 @@ const CartView = (): JSX.Element => {
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="mt-6 md:mt-14 px-2 lg:px-0 lg:flex">
             <ul>
-              {items.map((item, index) => (
-                <li key={item.id}>
-                  <div>
-                    <img src={item.image} alt={item.title} />
+              {items.map((item) => (
+                <div key={item.id} className="lg:flex lg:items-center mt-4 px-2 lg:px-0">
+                  <figure className="w-56 flex-shrink-0 rounded-2xl overflow-hidden px-4 py-4 bg-white">
+                    <img src={item.image} alt={item.title} className="transition-transform duration-300 w-28" />
+                  </figure>
+                  <div className="card-body px-1 lg:px-12">
+                    <h2 className="card-title">{item.title}</h2>
+                    <br />
+                    <span className="mt-2 mb-4 text-3xl">${item.price}</span>
+                    <br />
+                    <div className="card-actions">
+                      <button className="btn btn-primary">-</button>
+                      <button className="btn btn-ghost no-animation">{item.count}</button>
+                      <button className="btn btn-primary">+</button>
+                    </div>
+                    <br />
                   </div>
-                  <div>
-                    <span>{item.title}</span>
-                    <span>{item.price}</span>
-                    <span>{item.count}</span>
-                  </div>
-                </li>
+                </div>
               ))}
-              <button>장바구니에서 제거</button>
             </ul>
-            <div>
-              <span>{totalAmount.toFixed(2)}</span>
-              <button>구매하기</button>
+            <div className="self-start shrink-0 flex items-center mt-10 mb-20">
+              <span className="text-xl md:text-2xl">총: ${totalAmount.toFixed(2)}</span>
+              <button className="modal-button btn btn-primary ml-5">구매하기</button>
             </div>
           </div>
         )}
