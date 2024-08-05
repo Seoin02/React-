@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchProductsData from "../../../api/fetchProductsData";
 import { Item } from "../../../api/fetchProductsData";
+import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
   const { data, error, isLoading } = useQuery({
@@ -12,6 +13,7 @@ const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterI
   if (error) return <div>Error: {error.message}</div>;
 
   if (data === undefined) return <div></div>;
+
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
       {data
@@ -30,7 +32,7 @@ const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterI
             </figure>
             <div className="card-body bg-gray-100 dark:bg-gray-700">
               <div className="card-title text-base">{item.title}</div>
-              <div className="text-base">${item.price}</div>
+              <div className="text-base">{toCurrencyFormat(item.price)}</div>
             </div>
           </a>
         ))}

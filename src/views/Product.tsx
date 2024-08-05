@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BreadCrumb from "../components/common/Breadcrumb";
 import ProductDetail from "../components/products/ProductDetail";
-import { IProduct, productsList } from "../store/products";
-import { useRecoilValue } from "recoil";
+import { IProduct, useProducts } from "../../api/fetchProductsData";
 
 const Product = (): JSX.Element => {
-  const productListData = useRecoilValue(productsList);
+  const { data: productListData, isLoading, error } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
+
   useEffect(() => {
     const productId = Number(window.location.pathname.split("/")[2]);
-    const selectedProduct = productListData.find((product) => product.id === productId);
+    const selectedProduct = productListData?.find((product) => product.id === productId);
     setSelectedProduct(selectedProduct || null);
   }, [productListData]);
 

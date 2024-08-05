@@ -1,5 +1,4 @@
 import Slider from "../components/common/Slider";
-import { useRecoilState } from "recoil";
 import ItemList from "../components/products/ItemList";
 
 const fashionFilter = (index) => index >= 0 && index <= 3;

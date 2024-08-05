@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import React, { memo } from "react";
+import { memo } from "react";
 import Error from "../views/Error";
 import Index from "../views/Index";
 import Fashion from "../views/Fashion";
 import Accessory from "../views/Accessory";
 import Digital from "../views/Digital";
-import CartView from "../components/carts/CartView";
+import CartView from "../components/cart/CartView";
 import Product from "../views/Product";
 
 const Router = (): JSX.Element => {
