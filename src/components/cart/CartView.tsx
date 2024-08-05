@@ -20,7 +20,27 @@ const CartView = (): JSX.Element => {
             </Link>
           </div>
         ) : (
-          <div></div>
+          <div>
+            <ul>
+              {items.map((item, index) => (
+                <li key={item.id}>
+                  <div>
+                    <img src={item.image} alt={item.title} />
+                  </div>
+                  <div>
+                    <span>{item.title}</span>
+                    <span>{item.price}</span>
+                    <span>{item.count}</span>
+                  </div>
+                </li>
+              ))}
+              <button>장바구니에서 제거</button>
+            </ul>
+            <div>
+              <span>{totalAmount.toFixed(2)}</span>
+              <button>구매하기</button>
+            </div>
+          </div>
         )}
       </div>
       <Confirm />
