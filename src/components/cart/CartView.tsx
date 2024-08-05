@@ -3,11 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import BreadCrumb from "../common/Breadcrumb";
 import Confirm from "../common/Confirm";
 import { AppDispatch, RootState } from "../../store";
+import { increaseItemCount, decreaseItemCount } from "../../store/cart";
 
 const CartView = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
   const { items, totalAmount } = useSelector((state: RootState) => state.cart);
-  console.log(totalAmount);
+
+  const handleAddCount = (id: number) => {
+    dispatch(increaseItemCount(id));
+  };
+
+  const handleDecreaseCount = (id: number) => {
+    dispatch(decreaseItemCount(id));
+  };
+
   return (
     <section className="pt-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto">
       <BreadCrumb category="홈" crumb="장바구니" />
@@ -33,9 +42,13 @@ const CartView = (): JSX.Element => {
                     <span className="mt-2 mb-4 text-3xl">${item.price}</span>
                     <br />
                     <div className="card-actions">
-                      <button className="btn btn-primary">-</button>
+                      <button className="btn btn-primary" onClick={() => handleDecreaseCount(item.id)}>
+                        -
+                      </button>
                       <button className="btn btn-ghost no-animation">{item.count}</button>
-                      <button className="btn btn-primary">+</button>
+                      <button className="btn btn-primary" onClick={() => handleAddCount(item.id)}>
+                        +
+                      </button>
                     </div>
                     <br />
                   </div>

@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface ICartItems {
-  readonly id: number;
-  readonly title: string;
-  readonly price: number;
-  readonly count: number;
-  readonly image: string;
+  id: number;
+  title: string;
+  price: number;
+  count: number;
+  image: string;
 }
 
 export interface ICartState {
-  readonly items: ICartItems[];
+  items: ICartItems[];
   totalAmount: number;
 }
 
@@ -73,6 +73,29 @@ const cartSlice = createSlice({
         saveCartToLocalStorage(state);
       }
     },
+    increaseItemCount(state, action: PayloadAction<number>) {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+
+      if (existingItem) {
+        existingItem.count += 1;
+        state.totalAmount = state.items.reduce((total, item) => total + item.price * item.count, 0);
+        saveCartToLocalStorage(state);
+      }
+    },
+    decreaseItemCount(state, action: PayloadAction<number>) {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+
+      if (existingItem) {
+        existingItem.count -= 1;
+        if (existingItem.count <= 0) {
+          state.items = state.items.filter((item) => item.id !== id);
+        }
+        state.totalAmount = state.items.reduce((total, item) => total + item.price * item.count, 0);
+        saveCartToLocalStorage(state);
+      }
+    },
     clearCart(state) {
       state.items = [];
       state.totalAmount = 0;
@@ -82,5 +105,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, increaseItemCount, decreaseItemCount } = cartSlice.actions;
 export default cartSlice.reducer;
