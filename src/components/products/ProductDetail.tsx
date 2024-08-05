@@ -7,7 +7,7 @@ const ProductDetail = ({ product }): JSX.Element => {
   if (product === undefined) return <div></div>;
 
   const dispatch: AppDispatch = useDispatch();
-  console.log(product);
+
   return (
     <div key={product.id} className="lg:flex lg: gap-36 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
       <div className="lg:flex lg:items-center mt-6 md:mt-14 px-2 lg:px-0">

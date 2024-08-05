@@ -18,7 +18,6 @@ const initialState: ICartState = {
   totalAmount: 0,
 };
 
-// localStorage에서 카트 데이터를 불러오는 함수
 const loadCartFromLocalStorage = (): ICartState => {
   const savedCart = localStorage.getItem("cartItems");
   if (savedCart) {
