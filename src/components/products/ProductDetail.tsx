@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cart";
+import { AppDispatch } from "../../store";
 import Rating from "../common/Rating";
 
 const ProductDetail = ({ product }): JSX.Element => {
   if (product === undefined) return <div></div>;
 
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   console.log(product);
   return (
     <div key={product.id} className="lg:flex lg: gap-36 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
@@ -28,8 +29,11 @@ const ProductDetail = ({ product }): JSX.Element => {
             onClick={() =>
               dispatch(
                 addToCart({
-                  ...product,
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
                   count: 1,
+                  image: product.image,
                 })
               )
             }

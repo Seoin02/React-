@@ -1,13 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CART_ITEM } from "../constants/category";
 
-export interface ICartInfo {
-  readonly id: number;
-  readonly count: number;
-}
-
 export interface ICartItems {
-  readonly id: string;
+  readonly id: number;
   readonly title: string;
   readonly price: number;
   readonly count: number;
@@ -44,18 +39,23 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action: PayloadAction<ICartItems>) {
+      console.log("Action dispatched:", action.payload);
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
+
       if (existingItem) {
         existingItem.count += newItem.count;
       } else {
         state.items.push(newItem);
       }
+
       state.totalAmount += newItem.price * newItem.count;
+      console.log("Updated cart state:", state);
     },
-    removeFromCart(state, action: PayloadAction<string>) {
+    removeFromCart(state, action: PayloadAction<number>) {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
+
       if (existingItem) {
         state.totalAmount -= existingItem.price * existingItem.count;
         state.items = state.items.filter((item) => item.id !== id);
