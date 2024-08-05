@@ -33,7 +33,7 @@ const CartView = (): JSX.Element => {
             <ul>
               {items.map((item) => (
                 <div key={item.id} className="lg:flex lg:items-center mt-4 px-2 lg:px-0">
-                  <figure className="w-56 flex-shrink-0 rounded-2xl overflow-hidden px-4 py-4 bg-white">
+                  <figure className="w-10% flex-shrink-0 rounded-2xl overflow-hidden px-4 py-4 bg-white flex justify-center">
                     <img src={item.image} alt={item.title} className="transition-transform duration-300 w-28" />
                   </figure>
                   <div className="card-body px-1 lg:px-12">
@@ -50,7 +50,6 @@ const CartView = (): JSX.Element => {
                         +
                       </button>
                     </div>
-                    <br />
                   </div>
                 </div>
               ))}
