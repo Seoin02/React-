@@ -5,12 +5,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "./App";
 import store from "./store";
-import { CART_ITEM } from "./constants/category";
 
 const queryClient = new QueryClient();
 const container: HTMLElement = document.getElementById("app")!;
 const root = createRoot(container);
-const initialValue = JSON.parse(localStorage.getItem(CART_ITEM) as string) ?? {};
 
 root.render(
   <React.StrictMode>

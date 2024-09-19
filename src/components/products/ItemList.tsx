@@ -42,27 +42,3 @@ const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterI
 };
 
 export default ItemList;
-
-// tanstack query 쓰기 전 코드
-// const ItemList = ({
-//   data,
-//   categoryName,
-//   filterItem,
-// }: {
-//   data?: Products;
-//   categoryName?: string;
-//   filterItem?: (index: number) => boolean;
-// }) => {
-//   const [items, setItems] = useState<Products[]>([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const data = await fetchProductsData({});
-//         setItems(data);
-//       } catch (error) {
-//         throw new Error(`"Error fetching data:", ${error}`);
-//       }
-//     };
-//     fetchData();
-//   }, []);
