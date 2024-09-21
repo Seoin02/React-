@@ -5,6 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ command, mode }) => {
   const base = {
     plugins: [react()],
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
   };
 
   /**
