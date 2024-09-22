@@ -1,14 +1,11 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
+
 import fashionImg from "../../assets/img/carousel/img_shop_fashion.jpeg";
 import digitalImg from "../../assets/img/carousel/img_shop_digital.jpeg";
 import groceryImg from "../../assets/img/carousel/img_shop_grocery.jpeg";
 
-/**
- * Slider를 라이브러리를 활용하셔도 되지만 시간이 남는다면 직접하셔서 구현 해보세요.
- */
 const Slider = () => {
   const items = [
     {
@@ -47,7 +44,7 @@ const Slider = () => {
       infiniteLoop={true}
       className="carousel-container"
     >
-      {items.map((item: ISliderItem, index: number) => {
+      {items.map((item: ISliderItem) => {
         return (
           <div key={item.name} className="carousel-slide">
             <div className="carousel-description absolute left-auto right-auto bottom-1/3 mb-10 text-left w-full lg:container px-4 md:px-10">

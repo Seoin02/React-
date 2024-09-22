@@ -1,7 +1,7 @@
+import { AppDispatch, RootState } from "@/store";
+import { increaseItemCount, decreaseItemCount } from "@/store/cart";
+import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store";
-import { increaseItemCount, decreaseItemCount } from "../../store/cart";
-import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
 
 const CartList = (): JSX.Element => {
   const dispatch: AppDispatch = useDispatch();

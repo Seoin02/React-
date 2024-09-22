@@ -1,9 +1,4 @@
-//import { useRecoilState } from "recoil";
-//import { ICartState, cartState } from "../../store/cart";
-
 const Confirm = (): JSX.Element => {
-  // const [cart, setCart] = useState<ICartState>(cartState);
-  //const buyItems = () => setCart({} as ICartState);
   return (
     <>
       <input type="checkbox" id="confirm-modal" className="modal-toggle" />

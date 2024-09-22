@@ -1,4 +1,3 @@
-import React from "react";
 import BreadCrumb from "../components/common/Breadcrumb";
 import { MENUS } from "../constants/category";
 import ItemList from "../components/products/ItemList";

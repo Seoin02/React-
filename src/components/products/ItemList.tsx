@@ -1,15 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import fetchProductsData from "../../../api/fetchProductsData";
-import { Item } from "../../../api/fetchProductsData";
-import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
+import { useSuspenseQuery } from "@tanstack/react-query";
+
+import fetchProductsData from "@/api/fetchProductsData";
+import { Item } from "@/api/fetchProductsData";
+import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading } = useSuspenseQuery({
     queryKey: ["products"],
     queryFn: fetchProductsData,
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  console.log("로딩 상태: ", isLoading);
+
   if (error) return <div>Error: {error.message}</div>;
 
   if (data === undefined) return <div></div>;
@@ -41,27 +43,3 @@ const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterI
 };
 
 export default ItemList;
-
-// tanstack query 쓰기 전 코드
-// const ItemList = ({
-//   data,
-//   categoryName,
-//   filterItem,
-// }: {
-//   data?: Products;
-//   categoryName?: string;
-//   filterItem?: (index: number) => boolean;
-// }) => {
-//   const [items, setItems] = useState<Products[]>([]);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const data = await fetchProductsData({});
-//         setItems(data);
-//       } catch (error) {
-//         throw new Error(`"Error fetching data:", ${error}`);
-//       }
-//     };
-//     fetchData();
-//   }, []);

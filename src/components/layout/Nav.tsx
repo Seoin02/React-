@@ -1,10 +1,9 @@
-import bars from "../../assets/img/svg/bars.svg";
-import sun from "../../assets/img/svg/sun.svg";
-import moon from "../../assets/img/svg/moon.svg";
-import magnifyingGlass from "../../assets/img/svg/magnifying-glass.svg";
-import cart from "../../assets/img/svg/cart-shopping-solid.svg";
+import bars from "@/assets/img/svg/bars.svg";
+import moon from "@/assets/img/svg/moon.svg";
+import magnifyingGlass from "@/assets/img/svg/magnifying-glass.svg";
+import cart from "@/assets/img/svg/cart-shopping-solid.svg";
+import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store";
 
 const Nav = () => {
   const { items } = useSelector((state: RootState) => state.cart);

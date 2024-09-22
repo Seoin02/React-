@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import BreadCrumb from "@/components/common/Breadcrumb";
+import Confirm from "@/components/common/Confirm";
+import { RootState } from "@/store";
 import { useSelector } from "react-redux";
-import BreadCrumb from "../common/Breadcrumb";
-import Confirm from "../common/Confirm";
-import { RootState } from "../../store";
+import { Link } from "react-router-dom";
+
 import CartList from "./CartList";
 
 const CartView = (): JSX.Element => {
