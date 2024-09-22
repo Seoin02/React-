@@ -1,4 +1,4 @@
-import { Category } from "../../constants/category";
+import { Category } from "@/constants/category";
 
 interface IBreadCrumbsPros {
   readonly category?: string;

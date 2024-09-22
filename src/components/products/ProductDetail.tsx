@@ -1,8 +1,8 @@
+import { addToCart } from "@/store/cart";
+import { AppDispatch } from "@/store";
+import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/cart";
-import { AppDispatch } from "../../store";
 import Rating from "../common/Rating";
-import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
 
 const ProductDetail = ({ product }): JSX.Element => {
   if (product === undefined) return <div></div>;

@@ -1,7 +1,8 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import fetchProductsData from "../../../api/fetchProductsData";
-import { Item } from "../../../api/fetchProductsData";
-import { toCurrencyFormat } from "../../utils/toCurrencyFormat";
+
+import fetchProductsData from "@/api/fetchProductsData";
+import { Item } from "@/api/fetchProductsData";
+import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
   const { data, error, isLoading } = useSuspenseQuery({

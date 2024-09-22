@@ -1,5 +1,3 @@
-import React from "react";
-
 const Drawer = (): JSX.Element => {
   return (
     <div className="drawer-side">

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { memo } from "react";
+
 import Error from "../views/Error";
 import Index from "../views/Index";
 import Fashion from "../views/Fashion";

@@ -1,13 +1,12 @@
-import React from "react";
-import visa from "../../assets/img/svg/visa.svg";
-import americanExpress from "../../assets/img/svg/americanExpress.svg";
-import master from "../../assets/img/svg/master.svg";
-import paypal from "../../assets/img/svg/paypal.svg";
-import dinerClub from "../../assets/img/svg/dinersClub.svg";
-import discover from "../../assets/img/svg/discover.svg";
-import facebook from "../../assets/img/svg/facebook.svg";
-import instagram from "../../assets/img/svg/instagram.svg";
-import github from "../../assets/img/svg/github.svg";
+import visa from "@/assets/img/svg/visa.svg";
+import americanExpress from "@/assets/img/svg/americanExpress.svg";
+import master from "@/assets/img/svg/master.svg";
+import paypal from "@/assets/img/svg/paypal.svg";
+import dinerClub from "@/assets/img/svg/dinersClub.svg";
+import discover from "@/assets/img/svg/discover.svg";
+import facebook from "@/assets/img/svg/facebook.svg";
+import instagram from "@/assets/img/svg/instagram.svg";
+import github from "@/assets/img/svg/github.svg";
 
 const Footer = () => {
   return (
