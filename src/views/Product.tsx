@@ -1,8 +1,8 @@
+import { IProduct, useProducts } from "@/api/fetchProductsData";
 import { useEffect, useState } from "react";
 
 import BreadCrumb from "../components/common/Breadcrumb";
 import ProductDetail from "../components/products/ProductDetail";
-import { IProduct, useProducts } from "../../api/fetchProductsData";
 
 const Product = (): JSX.Element => {
   const { data: productListData } = useProducts();

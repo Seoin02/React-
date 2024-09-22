@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
+import { axiosInstance } from "@/utils/axiosInstance";
 import { AxiosRequestConfig } from "axios";
-
-import { axiosInstance } from "./../src/utils/axiosInstance";
 
 export interface IProduct {
   readonly id: number;
