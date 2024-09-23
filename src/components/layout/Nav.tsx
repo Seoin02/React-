@@ -3,12 +3,17 @@ import moon from "@/assets/img/svg/moon.svg";
 import magnifyingGlass from "@/assets/img/svg/magnifying-glass.svg";
 import cart from "@/assets/img/svg/cart-shopping-solid.svg";
 import { RootState } from "@/store";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Nav = () => {
   const { items } = useSelector((state: RootState) => state.cart);
+  const [totalCount, setTotalCount] = useState(0);
 
-  const totalCount = items.reduce((total, item) => total + item.count, 0);
+  useEffect(() => {
+    const total = items.reduce((total, item) => total + item.count, 0);
+    setTotalCount(total);
+  }, [items]);
 
   return (
     <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
