@@ -1,16 +1,14 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
-
-import fetchProductsData from "@/api/fetchProductsData";
+import useProducts from "@/api/fetchProductsData";
 import { Item } from "@/api/fetchProductsData";
 import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
+import { useEffect } from "react";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
-  const { data } = useSuspenseQuery({
-    queryKey: ["products"],
-    queryFn: fetchProductsData,
-    staleTime: 1000 * 60 * 5,
-    gcTime: 1000 * 60 * 10,
-  });
+  const { data } = useProducts();
+
+  useEffect(() => {
+    console.log("Fetching products data:", data);
+  }, [data]);
 
   if (data === undefined) return <div></div>;
 

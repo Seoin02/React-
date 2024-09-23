@@ -3,18 +3,14 @@ import moon from "@/assets/img/svg/moon.svg";
 import magnifyingGlass from "@/assets/img/svg/magnifying-glass.svg";
 import cart from "@/assets/img/svg/cart-shopping-solid.svg";
 import { RootState } from "@/store";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Nav = () => {
   const { items } = useSelector((state: RootState) => state.cart);
-  const [totalCount, setTotalCount] = useState(0);
 
-  useEffect(() => {
-    const total = items.reduce((total, item) => total + item.count, 0);
-    setTotalCount(total);
-  }, [items]);
-
+  const totalCount = items.reduce((total, item) => total + item.count, 0);
+  console.log(items);
+  console.log(totalCount);
   return (
     <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
       <div className="flex w-full xl:container xl:m-auto">
@@ -51,7 +47,7 @@ const Nav = () => {
             <a href="/carts">
               <img src={cart} className="h-6 w-6 stroke-gray-700 dark:stroke-white" />
               <span className="inline-flex items-center justify-center absolute top-0 right-0 px-2 py-1 rounded-full bg-red-500 text-xs font-bold leading-none text-gray-200 transform translate-x-1/2 -translate-y-1/2">
-                {totalCount}
+                {totalCount || 0}
               </span>
             </a>
           </div>
