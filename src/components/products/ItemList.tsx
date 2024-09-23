@@ -5,14 +5,12 @@ import { Item } from "@/api/fetchProductsData";
 import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
-  const { data, error, isLoading } = useSuspenseQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ["products"],
     queryFn: fetchProductsData,
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
   });
-
-  console.log("로딩 상태: ", isLoading);
-
-  if (error) return <div>Error: {error.message}</div>;
 
   if (data === undefined) return <div></div>;
 
