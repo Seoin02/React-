@@ -1,22 +1,24 @@
+import { Link } from "react-router-dom";
+
 const Drawer = (): JSX.Element => {
   return (
     <div className="drawer-side">
       <label htmlFor="side-menu" className="drawer-overlay"></label>
       <ul className="menu w-60 sm:w-80 p-4 overflow-y-auto bg-white dark:bg-base-100">
         <li>
-          <a className="!text-gray-700 active:!text-white dark:!text-white" href="/fashion">
+          <Link className="!text-gray-700 active:!text-white dark:!text-white" to="/fashion">
             패션
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="!text-gray-700 active:!text-white dark:!text-white" href="/accessory">
+          <Link className="!text-gray-700 active:!text-white dark:!text-white" to="/accessory">
             액세서리
-          </a>
+          </Link>
         </li>
         <li>
-          <a className="!text-gray-700 active:!text-white dark:!text-white" href="/digital">
+          <Link className="!text-gray-700 active:!text-white dark:!text-white" to="/digital">
             디지털
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
