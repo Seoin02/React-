@@ -1,15 +1,10 @@
 import useProducts from "@/api/fetchProductsData";
 import { Item } from "@/api/fetchProductsData";
 import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ItemList = ({ categoryName, filterItem }: { categoryName?: string; filterItem?: (index: number) => boolean }) => {
   const { data } = useProducts();
-
-  useEffect(() => {
-    console.log("Fetching products data:", data);
-  }, [data]);
 
   if (data === undefined) return <div></div>;
 
