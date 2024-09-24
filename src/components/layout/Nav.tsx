@@ -4,12 +4,14 @@ import magnifyingGlass from "@/assets/img/svg/magnifying-glass.svg";
 import cart from "@/assets/img/svg/cart-shopping-solid.svg";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const { items } = useSelector((state: RootState) => state.cart);
 
   const totalCount = items.reduce((total, item) => total + item.count, 0);
-
+  console.log(items);
+  console.log(totalCount);
   return (
     <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
       <div className="flex w-full xl:container xl:m-auto">
@@ -18,21 +20,21 @@ const Nav = () => {
         </label>
         <div>
           <h1 className="shrink-0 flex md:flex-none flex-1 mx-1 sm:mx-2">
-            <a className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap" href="/">
+            <Link className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap" to="/">
               React Shop
-            </a>
+            </Link>
           </h1>
         </div>
         <div className="flex-none hidden md:flex md:flex-1 ml-2">
-          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/fashion">
+          <Link className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" to="/fashion">
             패션
-          </a>
-          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/accessory">
+          </Link>
+          <Link className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" to="/accessory">
             액세서리
-          </a>
-          <a className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" href="/digital">
+          </Link>
+          <Link className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" to="/digital">
             디지털
-          </a>
+          </Link>
         </div>
         <div className="flex items-center px-2 gap-2">
           <img src={moon} className="swap-on fill-black w-7 h-7" />
@@ -43,12 +45,12 @@ const Nav = () => {
             className="fixed left-0 top-4 opacity-0 sm:opacity-100 sm:static sm:flex w-full input input-ghost focus:outline-0 rounded-none sm:rounded bg-gray-300 dark:bg-gray-600 !text-gray-800 dark:!text-white sm:transform-none transition-all js-searchInput translate-y-full !opacity-100"
           />
           <div className="relative h-8 w-8 py-1">
-            <a href="/carts">
+            <Link to="/carts">
               <img src={cart} className="h-6 w-6 stroke-gray-700 dark:stroke-white" />
               <span className="inline-flex items-center justify-center absolute top-0 right-0 px-2 py-1 rounded-full bg-red-500 text-xs font-bold leading-none text-gray-200 transform translate-x-1/2 -translate-y-1/2">
-                {totalCount}
+                {totalCount || 0}
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

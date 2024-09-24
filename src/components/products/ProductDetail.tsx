@@ -2,6 +2,7 @@ import { addToCart } from "@/store/cart";
 import { AppDispatch } from "@/store";
 import { toCurrencyFormat } from "@/utils/toCurrencyFormat";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import Rating from "../common/Rating";
 
 const ProductDetail = ({ product }): JSX.Element => {
@@ -41,9 +42,9 @@ const ProductDetail = ({ product }): JSX.Element => {
           >
             장바구니에 담기
           </button>
-          <a className="btn btn-outline ml-1" href="/carts">
+          <Link className="btn btn-outline ml-1" to="/carts">
             장바구니로 이동
-          </a>
+          </Link>
         </div>
       </div>
     </div>

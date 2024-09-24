@@ -1,4 +1,6 @@
-module.exports = {
+import daisyui from "daisyui";
+
+export default {
   mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -19,7 +21,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [daisyui],
   daisyui: {
     styled: true,
     themes: ["light", "dark"],

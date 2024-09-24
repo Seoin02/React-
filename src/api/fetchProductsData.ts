@@ -1,6 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-
 import { axiosInstance } from "@/utils/axiosInstance";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { AxiosRequestConfig } from "axios";
 
 export interface IProduct {
@@ -32,8 +31,16 @@ const fetchProductsData = async (): Promise<IProduct[]> => {
   return response.data;
 };
 
-export const useProducts = () => {
-  return useQuery<IProduct[]>({ queryKey: ["products"], queryFn: fetchProductsData });
+const useProducts = () => {
+  return useSuspenseQuery<IProduct[]>({
+    queryKey: ["products"],
+    queryFn: fetchProductsData,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    refetchInterval: false,
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
+  });
 };
 
-export default fetchProductsData;
+export default useProducts;
