@@ -15,6 +15,9 @@ const App = (): JSX.Element => {
     <BrowserRouter>
       <ErrorBoundary fallback={<Error />}>
         <Suspense fallback={<Loading />}>
+          <label htmlFor="side-menu" className="sr-only">
+            side-menu
+          </label>
           <input type="checkbox" id="side-menu" className="drawer-toggle" />
           <section className="drawer-content">
             <Nav />

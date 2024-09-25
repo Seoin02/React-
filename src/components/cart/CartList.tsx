@@ -30,11 +30,17 @@ const CartList = (): JSX.Element => {
                 <span className="mt-2 mb-4 text-3xl">{toCurrencyFormat(item.price)}</span>
                 <br />
                 <div className="card-actions">
-                  <button className="btn btn-primary" onClick={() => handleDecreaseCount(item.id)}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleDecreaseCount(item.id)}
+                    aria-label="minus button"
+                  >
                     -
                   </button>
-                  <button className="btn btn-ghost no-animation">{item.count}</button>
-                  <button className="btn btn-primary" onClick={() => handleAddCount(item.id)}>
+                  <button className="btn btn-ghost no-animation" aria-label="item count">
+                    {item.count}
+                  </button>
+                  <button className="btn btn-primary" onClick={() => handleAddCount(item.id)} aria-label="plus button">
                     +
                   </button>
                 </div>
@@ -44,7 +50,9 @@ const CartList = (): JSX.Element => {
         </ul>
         <div className="self-start shrink-0 flex items-center mt-10 mb-20">
           <span className="text-xl md:text-2xl">총: {toCurrencyFormat(totalAmount)}</span>
-          <button className="modal-button btn btn-primary ml-5">구매하기</button>
+          <button className="modal-button btn btn-primary ml-5" aria-label="purchase button">
+            구매하기
+          </button>
         </div>
       </div>
     </div>
