@@ -12,17 +12,17 @@ const Footer = () => {
   return (
     <footer className="p-10 footer bg-base-200 text-base-content footer-center">
       <div className="flex gap-2">
-        <img src={visa} alt="visa icon" />
-        <img src={americanExpress} alt="americanExpress icon" />
-        <img src={master} alt="master icon" />
-        <img src={paypal} alt="paypal icon" />
-        <img src={dinerClub} alt="dinerClub icon" />
-        <img src={discover} alt="discover icon" />
+        <img src={visa} />
+        <img src={americanExpress} />
+        <img src={master} />
+        <img src={paypal} />
+        <img src={dinerClub} />
+        <img src={discover} />
       </div>
       <div className="grid grid-flow-col gap-4">
-        <img src={facebook} className="w-4" alt="facebook icon" />
-        <img src={instagram} className="w-6" alt="instagram icon" />
-        <img src={github} className="w-6" alt="github icon" />
+        <img src={facebook} className="w-4" />
+        <img src={instagram} className="w-6" />
+        <img src={github} className="w-6" />
       </div>
       <div>Copyright © Seoin02</div>
     </footer>
