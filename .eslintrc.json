@@ -8,7 +8,7 @@
       "jsx": true
     }
   },
-  "plugins": ["import", "import-helpers", "@typescript-eslint"],
+  "plugins": ["import", "import-helpers", "@typescript-eslint", "html"],
   "settings": {
     "import/resolver": {
       "alias": {
