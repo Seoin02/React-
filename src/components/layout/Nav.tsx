@@ -35,7 +35,9 @@ const Nav = () => {
         </div>
         <div className="flex items-center px-2 gap-2">
           <img src={moon} className="swap-on fill-black w-7 h-7" alt="dart mode" />
-          <label htmlFor="search">검색</label>
+          <label htmlFor="search" className="sr-only">
+            검색
+          </label>
           <input
             type="text"
             id="search"
