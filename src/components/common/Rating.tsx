@@ -13,10 +13,12 @@ const Rating = ({ rate, count }: TRatingProps): JSX.Element => {
   return (
     <div className="flex items-center mt-3">
       <div className="rating rating-half">
-        {stars.map(($elm, index) => {
+        {stars.map((_, index) => {
           return (
             <>
-              <label htmlFor="rating-10">별점</label>
+              <label htmlFor="rating-10" className="sr-only">
+                별점
+              </label>
               <input
                 type="radio"
                 id="rating-10"
