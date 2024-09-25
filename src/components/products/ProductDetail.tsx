@@ -13,7 +13,7 @@ const ProductDetail = ({ product }): JSX.Element => {
   return (
     <div key={product.id} className="lg:flex lg: gap-36 lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
       <div className="lg:flex lg:items-center mt-6 md:mt-14 px-2 lg:px-0">
-        <figure className="flex-shrink-0 items-center rounded-2xl overflow-hidden px-4 py-4 bg-white view_image">
+        <figure className="flex flex-shrink-0 justify-center items-center rounded-2xl overflow-hidden px-4 py-4 bg-white view_image">
           <img className="object-contain w-56 h-80" src={product.image} alt={product.title} />
         </figure>
       </div>
