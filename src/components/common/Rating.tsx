@@ -15,16 +15,20 @@ const Rating = ({ rate, count }: TRatingProps): JSX.Element => {
       <div className="rating rating-half">
         {stars.map(($elm, index) => {
           return (
-            <input
-              type="radio"
-              name="rating-10"
-              key={`rating${index}`}
-              className={`bg-yellow-400 cursor-default mask mask-star-2 ${
-                index % 2 == 0 ? "mask-half-1" : "mask-half-2"
-              }`}
-              disabled
-              checked={index + 1 <= rate * 2}
-            />
+            <>
+              <label htmlFor="rating-10">별점</label>
+              <input
+                type="radio"
+                id="rating-10"
+                name="rating-10"
+                key={`rating${index}`}
+                className={`bg-yellow-400 cursor-default mask mask-star-2 ${
+                  index % 2 == 0 ? "mask-half-1" : "mask-half-2"
+                }`}
+                disabled
+                checked={index + 1 <= rate * 2}
+              />
+            </>
           );
         })}
       </div>

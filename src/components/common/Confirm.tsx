@@ -1,6 +1,7 @@
 const Confirm = (): JSX.Element => {
   return (
     <>
+      <label htmlFor="confirm-modal">장바구니 상품 구매 확인</label>
       <input type="checkbox" id="confirm-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">

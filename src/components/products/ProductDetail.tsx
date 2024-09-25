@@ -39,6 +39,7 @@ const ProductDetail = ({ product }): JSX.Element => {
                 })
               )
             }
+            aria-label="add button"
           >
             장바구니에 담기
           </button>
