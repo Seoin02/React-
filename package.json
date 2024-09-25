@@ -15,7 +15,7 @@
     "@types/react-dom": "^18.2.4",
     "@types/react-router": "^5.1.20",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
-    "@typescript-eslint/parser": "^8.6.0",
+    "@typescript-eslint/parser": "^8.7.0",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "daisyui": "^2.51.6",
@@ -38,6 +38,7 @@
     "@tanstack/react-query-devtools": "^5.37.1",
     "@vercel/node": "^2.15.10",
     "axios": "^1.6.8",
+    "eslint-plugin-html": "^8.1.2",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1"
   }
