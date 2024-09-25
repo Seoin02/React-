@@ -15,16 +15,14 @@ const Nav = () => {
   return (
     <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
       <div className="flex w-full xl:container xl:m-auto">
-        <label htmlFor="side-menu" className="flex-none lg:hidden btn btn-square btn-ghost w-10 sm:w-auto">
+        <label htmlFor="side-menu" className="flex-none lg:hidden md:hidden btn btn-square btn-ghost w-10 sm:w-auto">
           <img src={bars} className="inline-block w-6 h-6 stroke-gray-700 dark:stroke-current" />
         </label>
-        <div>
-          <h1 className="shrink-0 flex md:flex-none flex-1 mx-1 sm:mx-2">
-            <Link className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap" to="/">
-              React Shop
-            </Link>
-          </h1>
-        </div>
+        <h1 className="shrink-0 flex md:flex-none flex-1 mx-1 sm:mx-2">
+          <Link className="text-lg text-gray-700 dark:text-white font-bold whitespace-nowrap" to="/">
+            React Shop
+          </Link>
+        </h1>
         <div className="flex-none hidden md:flex md:flex-1 ml-2">
           <Link className="btn btn-ghost btn-sm rounded-btn text-gray-700 dark:text-white" to="/fashion">
             패션
